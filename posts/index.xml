@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - 我的全新 Hugo 网站</title>
+        <link>https://mixleeli.github.io/www/posts/</link>
+        <description>All Posts | 我的全新 Hugo 网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 04 Jun 2022 08:16:13 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>A</title>
+    <link>https://mixleeli.github.io/www/posts/a/</link>
+    <pubDate>Sat, 04 Jun 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/a/</guid>
+    <description><![CDATA[通过hugo new posts生成的md文件]]></description>
+</item>
+<item>
+    <title>hugo静态页面</title>
+    <link>https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/</link>
+    <pubDate>Sat, 04 Jun 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/</guid>
+    <description><![CDATA[gitee中的静态页面管理系统 支持 Jekyll、Hugo、Hexo编译静态资源 将md文件自动变换成静态页面html 初步了解 自行 流程 hugo 安装与配]]></description>
+</item>
+<item>
+    <title>w9问题汇总</title>
+    <link>https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</link>
+    <pubDate>Sat, 04 Jun 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
+    <description><![CDATA[js语句写在body、head和外部js文件中的区别是什么 自己搜到的结果：在head中所代表的functions只加载不执行，执行是在某一事]]></description>
+</item>
+</channel>
+</rss>

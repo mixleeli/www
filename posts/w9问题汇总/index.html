@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>w9问题汇总 - 我的全新 Hugo 网站</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="w9问题汇总" />
+<meta property="og:description" content="js语句写在body、head和外部js文件中的区别是什么 自己搜到的结果：在head中所代表的functions只加载不执行，执行是在某一事" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-04T08:16:13+08:00" />
+<meta property="article:modified_time" content="2022-06-04T08:16:13+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="w9问题汇总"/>
+<meta name="twitter:description" content="js语句写在body、head和外部js文件中的区别是什么 自己搜到的结果：在head中所代表的functions只加载不执行，执行是在某一事"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" /><link rel="next" href="https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" /><link rel="stylesheet" href="/www/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "w9问题汇总",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mixleeli.github.io\/www\/posts\/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB\/"
+        },"genre": "posts","wordcount":  652 ,
+        "url": "https:\/\/mixleeli.github.io\/www\/posts\/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB\/","datePublished": "2022-06-04T08:16:13+08:00","dateModified": "2022-06-04T08:16:13+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mixlee"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/www/www/posts/"> 文章 </a><a class="menu-item" href="/www/www/tags/"> 标签 </a><a class="menu-item" href="/www/www/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/www/www/posts/" title="">文章</a><a class="menu-item" href="/www/www/tags/" title="">标签</a><a class="menu-item" href="/www/www/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">w9问题汇总</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/www/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mixlee</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-04">2022-06-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;652 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><ol start="2">
+<li>
+<ol>
+<li>js语句写在body、head和外部js文件中的区别是什么</li>
+</ol>
+<ul>
+<li>自己搜到的结果：在head中所代表的functions只加载不执行，执行是在某一事件触发后才开始，在body中时直接加载并执行。引入单独的js文件可以降低网络传输量，提高代码复用性，便于维护和管理。例如：一个网站可能有很多页面需要引用某个javaScript函数，如果这个函数直接写在页面中，那每次加载页面时都将重复下载这部分代码。若引用单独的js文件，客户端第一次引用这个函数时就会下载js文件，后面再用直接引用本地缓存的js文件就行了。若需要修改某一函数，而这个函数在好多页面都用，偏偏又是都将代码写在了页面中，这是修改代码就成了简单的体力活了。若是引用的js文件就好多了，只需要修改一次就ok啦，既省时又省力。</li>
+</ul>
+</li>
+<li>上说relative是相对于它默认的位置而定位，但是慕课上说的是relative是相当于它的直接父元素而定位，这个怎么理解啊</li>
+<li>遇到的问题：制作网页时，不能做到鼠标悬停时放大文字却不影响其他地方
+<ul>
+<li>解决方法：将需要放大的文字制作成盒子，在开始时把盒子的边框显示出来，观察文字放大时盒子的移动情况，最后得出结论，只用把盒子的高度宽度设置变大，在文字放大时不超出盒子的大小，就不会影响其他区域</li>
+</ul>
+</li>
+<li>console.log(is NaN(input));这个如何理解啊，这里的input是指从键盘中输入吗
+<ul>
+<li><a href="https://blog.csdn.net/shaoqianting/article/details/50328023" target="_blank" rel="noopener noreffer">【js小方法】isNaN，input中判断是数字_SQTTTTTTT的博客-CSDN博客_isnan判断是否是数字</a></li>
+</ul>
+</li>
+<li>感觉慕课上的网课看了之后，感觉收获很少</li>
+<li>js与c语言哪里不同？</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-06-04</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" data-title="w9问题汇总"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" data-title="w9问题汇总"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" data-title="w9问题汇总"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" data-title="w9问题汇总"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/www/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" class="next" rel="next" title="hugo静态页面">hugo静态页面<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/www/" target="_blank">mixlee</a></span>&nbsp;|&nbsp;<span class="license">迷离世界</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/www/js/theme.min.js"></script></body>
+</html>

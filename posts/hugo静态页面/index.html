@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>hugo静态页面 - 我的全新 Hugo 网站</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="hugo静态页面" />
+<meta property="og:description" content="gitee中的静态页面管理系统 支持 Jekyll、Hugo、Hexo编译静态资源 将md文件自动变换成静态页面html 初步了解 自行 流程 hugo 安装与配" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-04T08:16:13+08:00" />
+<meta property="article:modified_time" content="2022-06-04T08:16:13+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hugo静态页面"/>
+<meta name="twitter:description" content="gitee中的静态页面管理系统 支持 Jekyll、Hugo、Hexo编译静态资源 将md文件自动变换成静态页面html 初步了解 自行 流程 hugo 安装与配"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" /><link rel="prev" href="https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" /><link rel="next" href="https://mixleeli.github.io/www/posts/a/" /><link rel="stylesheet" href="/www/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "hugo静态页面",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mixleeli.github.io\/www\/posts\/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2\/"
+        },"genre": "posts","wordcount":  842 ,
+        "url": "https:\/\/mixleeli.github.io\/www\/posts\/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2\/","datePublished": "2022-06-04T08:16:13+08:00","dateModified": "2022-06-04T08:16:13+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mixlee"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/www/www/posts/"> 文章 </a><a class="menu-item" href="/www/www/tags/"> 标签 </a><a class="menu-item" href="/www/www/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/www/www/posts/" title="">文章</a><a class="menu-item" href="/www/www/tags/" title="">标签</a><a class="menu-item" href="/www/www/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">hugo静态页面</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/www/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mixlee</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-04">2022-06-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;842 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#支持-jekyllhugohexo编译静态资源">支持 Jekyll、Hugo、Hexo编译静态资源</a></li>
+    <li><a href="#流程">流程</a></li>
+    <li><a href="#安装hugo">安装hugo</a></li>
+    <li><a href="#测试hugo是否可以正常运行">测试hugo是否可以正常运行</a></li>
+    <li><a href="#hugo的基本命令">hugo的基本命令</a>
+      <ul>
+        <li><a href="#创建网站">创建网站</a></li>
+        <li><a href="#新建md文件或者使用原有的md文件">新建md文件或者使用原有的md文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo主题包的安装">hugo主题包的安装</a>
+      <ul>
+        <li><a href="#papermod为例">papermod为例</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo本地测试">hugo本地测试</a>
+      <ul>
+        <li><a href="#开启本地服务命令">开启本地服务命令</a></li>
+        <li><a href="#浏览器输入-httplocalhost1313">浏览器输入 http://localhost:1313</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo本地发布">hugo本地发布</a>
+      <ul>
+        <li><a href="#发布的命令">发布的命令</a></li>
+        <li><a href="#发布后的文件在哪里">发布后的文件在哪里</a></li>
+        <li><a href="#本地打开查看后发现有问题">本地打开查看后发现有问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#gitee仓库更新">gitee仓库更新</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="gitee中的静态页面管理系统">gitee中的静态页面管理系统</h1>
+<ul>
+<li></li>
+</ul>
+<h2 id="支持-jekyllhugohexo编译静态资源">支持 Jekyll、Hugo、Hexo编译静态资源</h2>
+<ul>
+<li>将md文件自动变换成静态页面html</li>
+<li>初步了解
+<ul>
+<li>自行</li>
+</ul>
+</li>
+</ul>
+<h2 id="流程">流程</h2>
+<ul>
+<li>hugo 安装与配置</li>
+<li>编写md（准备已经编辑好的md、对其进行调整）</li>
+<li>安装hugo的主题包</li>
+<li>hugo 命令进行本地测试</li>
+<li>hugo命令进行本地发布——&gt;html文件及各种其他文件</li>
+<li>git将本地发布的页面推送到远端</li>
+<li>gitee pages中重新部署</li>
+</ul>
+<h2 id="安装hugo">安装hugo</h2>
+<ul>
+<li>安装过程非常简单。只需要下载合适你系统版本的 Hugo 二进制 。</li>
+<li>更理想的是，为了更方便的使用，你应该把它安装到你的 PATH 环境变量所在的位置。</li>
+<li>推荐下载extended版本
+<ul>
+<li><a href="https://github.com/gohugoio/hugo/releases/download/v0.100.1/hugo_extended_0.100.1_Windows-64bit.zip" target="_blank" rel="noopener noreffer">hugo_extended_0.100.1_Windows-64bit.zip</a></li>
+</ul>
+</li>
+<li>安装与配置
+<ul>
+<li>把hugo.exe放置到 C:\Windows\System32 内</li>
+</ul>
+</li>
+</ul>
+<h2 id="测试hugo是否可以正常运行">测试hugo是否可以正常运行</h2>
+<ul>
+<li>在命令行里面 输入 <code>hugo version</code></li>
+<li>
+<img loading="lazy" src="img/image-20220604080632302.png" alt="image-20220604080632302"  />
+</li>
+</ul>
+<h2 id="hugo的基本命令">hugo的基本命令</h2>
+<h3 id="创建网站">创建网站</h3>
+<ul>
+<li>
+<p>创建一个新的文件夹</p>
+</li>
+<li>
+<p>打开命令行窗口</p>
+<ul>
+<li>
+<img loading="lazy" src="img/image-20220604081050794.png" alt="image-20220604081050794"  />
+</li>
+</ul>
+</li>
+<li>
+<pre tabindex="0"><code>SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo_new
+$ hugo new site myblog
+</code></pre></li>
+<li>
+<p>自动生成了一堆文件、文件夹</p>
+<ul>
+<li>
+<img loading="lazy" src="img/image-20220604081222633.png" alt="image-20220604081222633"  />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="新建md文件或者使用原有的md文件">新建md文件或者使用原有的md文件</h3>
+<ul>
+<li>
+<p>md文件一定要放置到content\posts文件夹内</p>
+<ul>
+<li>
+<p>新建md文件</p>
+<ul>
+<li>
+<pre tabindex="0"><code>SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo_new
+$ hugo new posts/a.md
+Error: Unable to locate config file or config directory. Perhaps you need to create a new site.
+       Run `hugo help new` for details.
+
+
+SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo_new
+$ cd myblog
+
+SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo_new/myblog
+$ hugo new posts/a.md
+Content &#34;C:\\Users\\SD\\Desktop\\hugo_new\\myblog\\content\\posts\\a.md&#34; created
+</code></pre></li>
+<li>
+<p>注意：需要到自己建立的website文件夹内再执行创建md的操作。</p>
+</li>
+<li>
+<p>
+<img loading="lazy" src="img/image-20220604081735337.png" alt="image-20220604081735337"  />
+</p>
+</li>
+<li>
+<p>md文件内容最上面</p>
+<ul>
+<li>
+<img loading="lazy" src="img/image-20220604081806714.png" alt="image-20220604081806714"  />
+</li>
+<li>这些信息可以帮助hugo实现将md生成html的重要信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>已有的md文件，放入posts文件夹</p>
+<ul>
+<li>在文件头部增加相应的信息</li>
+<li>
+<img loading="lazy" src="img/image-20220604082123563.png" alt="image-20220604082123563"  />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="hugo主题包的安装">hugo主题包的安装</h2>
+<h3 id="papermod为例">papermod为例</h3>
+<h4 id="下载主题">下载主题</h4>
+<ul>
+<li>主题仓库
+<ul>
+<li><a href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener noreffer">GitHub - adityatelange/hugo-PaperMod: A fast, clean, responsive Hugo theme.</a></li>
+</ul>
+</li>
+<li>示例仓库
+<ul>
+<li><a href="https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite" target="_blank" rel="noopener noreffer">GitHub - adityatelange/hugo-PaperMod at exampleSite</a></li>
+<li>主要使用的是配置文件 config.yml</li>
+</ul>
+</li>
+</ul>
+<h4 id="应用主题">应用主题</h4>
+<ul>
+<li>将下载的主题包解压到themes文件夹内</li>
+<li>
+<img loading="lazy" src="img/image-20220604083245554.png" alt="image-20220604083245554"  />
+</li>
+<li>
+<img loading="lazy" src="img/image-20220604083339018.png" alt="image-20220604083339018"  />
+</li>
+<li>编辑配置文件
+<ul>
+<li>
+<img loading="lazy" src="img/image-20220604083451243.png" alt="image-20220604083451243"  />
+</li>
+<li>修改主题名称</li>
+<li>修改baseURL删除后面的目录名称</li>
+<li>
+<img loading="lazy" src="img/image-20220604083616939.png" alt="image-20220604083616939"  />
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="主题扩展">主题扩展</h4>
+<ul>
+<li><a href="https://www.sulvblog.cn/posts/blog/hugo_toc_side/" target="_blank" rel="noopener noreffer">Hugo博客目录放在侧边 | PaperMod主题 | Sulv&rsquo;s Blog (sulvblog.cn)</a></li>
+</ul>
+<h2 id="hugo本地测试">hugo本地测试</h2>
+<h3 id="开启本地服务命令">开启本地服务命令</h3>
+<ul>
+<li><code>hugo server -D</code></li>
+<li>
+<img loading="lazy" src="img/image-20220604083815598.png" alt="image-20220604083815598"  />
+</li>
+</ul>
+<h3 id="浏览器输入-httplocalhost1313">浏览器输入 http://localhost:1313</h3>
+<ul>
+<li>
+<img loading="lazy" src="img/image-20220604083908415.png" alt="image-20220604083908415"  />
+</li>
+</ul>
+<h2 id="hugo本地发布">hugo本地发布</h2>
+<h3 id="发布的命令">发布的命令</h3>
+<ul>
+<li><code>hugo -D</code></li>
+<li>
+<img loading="lazy" src="img/image-20220604084201403.png" alt="image-20220604084201403"  />
+</li>
+</ul>
+<h3 id="发布后的文件在哪里">发布后的文件在哪里</h3>
+<ul>
+<li>public文件夹</li>
+<li>
+<img loading="lazy" src="img/image-20220604084259131.png" alt="image-20220604084259131"  />
+</li>
+</ul>
+<h3 id="本地打开查看后发现有问题">本地打开查看后发现有问题</h3>
+<ul>
+<li>看着不正常</li>
+<li>需要修改配置文件里面的baseURL
+<ul>
+<li>根据自己的gitee pages里面的网站地址进行修改</li>
+<li><a href="http://mixlee.gitee.io/mytest" target="_blank" rel="noopener noreffer">http://mixlee.gitee.io/mytest</a></li>
+</ul>
+</li>
+<li>因为baseURL的原因，在本地是无法正常浏览效果的。</li>
+</ul>
+<h2 id="gitee仓库更新">gitee仓库更新</h2>
+<ul>
+<li>
+<img loading="lazy" src="img/image-20220604084905693.png" alt="image-20220604084905693"  />
+</li>
+<li>
+<img loading="lazy" src="img/image-20220604084956173.png" alt="image-20220604084956173"  />
+</li>
+<li></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-06-04</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" data-title="hugo静态页面"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" data-title="hugo静态页面"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" data-title="hugo静态页面"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mixleeli.github.io/www/posts/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" data-title="hugo静态页面"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/www/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="prev" rel="prev" title="w9问题汇总"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>w9问题汇总</a>
+            <a href="/www/posts/a/" class="next" rel="next" title="A">A<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/www/" target="_blank">mixlee</a></span>&nbsp;|&nbsp;<span class="license">迷离世界</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/www/js/theme.min.js"></script></body>
+</html>
