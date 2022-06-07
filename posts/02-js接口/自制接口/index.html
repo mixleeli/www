@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>自制接口 - 我的全新 Hugo 网站</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="自制接口" />
+<meta property="og:description" content="自制用于JSONP的接口 特点 回调函数 JSON数据 参照 PHP AJAX JSONP实现跨域请求使用实例 - 神马和浮云 - 博客园 (cnblogs.com) php接口代码 $callback = isset($_GET[&#39;callback&#39;]) ? trim($_GET[&#39;callback&#39;]) : &#39;&#39;; //" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-29T08:16:13+08:00" />
+<meta property="article:modified_time" content="2022-05-29T08:16:13+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自制接口"/>
+<meta name="twitter:description" content="自制用于JSONP的接口 特点 回调函数 JSON数据 参照 PHP AJAX JSONP实现跨域请求使用实例 - 神马和浮云 - 博客园 (cnblogs.com) php接口代码 $callback = isset($_GET[&#39;callback&#39;]) ? trim($_GET[&#39;callback&#39;]) : &#39;&#39;; //"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/" /><link rel="prev" href="https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%88%9D%E6%AD%A5/" /><link rel="next" href="https://mixleeli.github.io/www/posts/01-hugo/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" /><link rel="stylesheet" href="/www/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "自制接口",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mixleeli.github.io\/www\/posts\/02-js%E6%8E%A5%E5%8F%A3\/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3\/"
+        },"genre": "posts","wordcount":  1142 ,
+        "url": "https:\/\/mixleeli.github.io\/www\/posts\/02-js%E6%8E%A5%E5%8F%A3\/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3\/","datePublished": "2022-05-29T08:16:13+08:00","dateModified": "2022-05-29T08:16:13+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mixlee"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/www/www/posts/"> 文章 </a><a class="menu-item" href="/www/www/tags/"> 标签 </a><a class="menu-item" href="/www/www/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/www/www/posts/" title="">文章</a><a class="menu-item" href="/www/www/tags/" title="">标签</a><a class="menu-item" href="/www/www/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">自制接口</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/www/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mixlee</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-05-29">2022-05-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1142 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#php接口代码">php接口代码</a></li>
+    <li><a href="#html调用自制接口">html调用自制接口</a></li>
+    <li><a href="#完善接口数据结构">完善接口数据结构</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#天气api接口">天气API接口</a></li>
+    <li><a href="#原生js调用需要添加data数据">原生js调用需要添加data数据</a></li>
+    <li><a href="#jquery中的ajax">jquery中的ajax</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="自制用于jsonp的接口">自制用于JSONP的接口</h1>
+<ul>
+<li>特点
+<ul>
+<li>回调函数</li>
+<li>JSON数据</li>
+</ul>
+</li>
+<li>参照
+<ul>
+<li><a href="https://www.cnblogs.com/xcxc/p/3729660.html" target="_blank" rel="noopener noreffer">PHP AJAX JSONP实现跨域请求使用实例 - 神马和浮云 - 博客园 (cnblogs.com)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="php接口代码">php接口代码</h2>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$callback</span> <span class="o">=</span> <span class="nx">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">])</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span> <span class="c1">//jsonp回调参数，必需
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$result</span> <span class="o">=</span> <span class="nx">file_get_contents</span><span class="p">(</span><span class="s2">&#34;https://v.api.aa1.cn/api/yiyan/index.php&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmp</span><span class="o">=</span> <span class="nx">json_encode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span> <span class="c1">//json 数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">echo</span> <span class="nv">$callback</span> <span class="o">.</span> <span class="s1">&#39;(&#39;</span> <span class="o">.</span> <span class="nv">$tmp</span> <span class="o">.</span><span class="s1">&#39;)&#39;</span><span class="p">;</span> <span class="c1">//返回格式，必需
+</span></span></span></code></pre></div></li>
+<li>
+<p>解释1——回调函数名</p>
+<ul>
+<li>
+<p>这里的callback需要通过get方式进行传递，如果不传递则默认为空，可以将其修改为如下：</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$callback</span> <span class="o">=</span> <span class="nx">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">])</span> <span class="o">:</span> <span class="s1">&#39;cb&#39;</span><span class="p">;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>默认没有传递参数的话 ，回调函数的名称就是cb</p>
+</li>
+</ul>
+</li>
+<li>
+<p>解释2——返回数据</p>
+<ul>
+<li>数据因为没有经过加工，只是普通的html数据</li>
+<li>
+<img loading="lazy" src="img/image-20220527171906103.png" alt="image-20220527171906103"  />
+</li>
+<li>从返回内容看，里面应该还有其他特殊代码，继续测试发现里面带有p标签。</li>
+<li>
+<img loading="lazy" src="img/image-20220527172057762.png" alt="image-20220527172057762"  />
+</li>
+<li>简单处理一下去除p标签</li>
+<li>
+<img loading="lazy" src="img/image-20220527172137889.png" alt="image-20220527172137889"  />
+</li>
+<li>再次测试返回值的情况，已经正常。</li>
+<li>
+<img loading="lazy" src="img/image-20220527172205408.png" alt="image-20220527172205408"  />
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="html调用自制接口">html调用自制接口</h2>
+<ul>
+<li>
+<p>关键代码</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//组装查询地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">var</span> <span class="nx">sugurl</span> <span class="o">=</span> <span class="s2">&#34;http://localhost/api_yiyan_jsonp.php&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//定义回调函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">cb</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// console.log(json.q)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//动态添加JS脚本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">var</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">sugurl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;head&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>测试接口返回情况基本正常</p>
+<ul>
+<li>
+<img loading="lazy" src="img/image-20220527172756438.png" alt="image-20220527172756438"  />
+</li>
+<li>控制台中已经可以获取正常的数据。</li>
+</ul>
+</li>
+</ul>
+<h2 id="完善接口数据结构">完善接口数据结构</h2>
+<ul>
+<li>
+<p>目前返回的数据是纯json字符串，并不是标准的数组对象，因此可以继续完善接口代码。</p>
+</li>
+<li>
+<p>参照</p>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_34378969/article/details/89779552" target="_blank" rel="noopener noreffer">php生成返回json对象数组（json支持中文）_weixin_34378969的博客-CSDN博客</a></li>
+</ul>
+</li>
+<li>
+<p>修改php接口代码</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$result</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&#34;code&#34;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span><span class="s2">&#34;q&#34;</span><span class="o">=&gt;</span><span class="nv">$result</span><span class="p">);</span>
+</span></span></code></pre></div></li>
+<li>
+<p>将相关数据封装到数组中，并增加了关于接口是否正常的code值。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>完整接口代码</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nx">header</span><span class="p">(</span><span class="s2">&#34;Content-Type:text/html;charset=UTF-8&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">date_default_timezone_set</span><span class="p">(</span><span class="s2">&#34;PRC&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$callback</span> <span class="o">=</span> <span class="nx">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">])</span> <span class="o">:</span> <span class="s1">&#39;cb&#39;</span><span class="p">;</span> <span class="c1">//jsonp回调参数，必需
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$result</span> <span class="o">=</span> <span class="nx">file_get_contents</span><span class="p">(</span><span class="s2">&#34;https://v.api.aa1.cn/api/yiyan/index.php&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$result</span><span class="o">=</span><span class="nx">str_replace</span><span class="p">(</span><span class="s2">&#34;&lt;p&gt;&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">,</span><span class="nv">$result</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="nv">$result</span><span class="o">=</span><span class="nx">str_replace</span><span class="p">(</span><span class="s2">&#34;&lt;/p&gt;&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">,</span><span class="nv">$result</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//没有关于code判断代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$result</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&#34;code&#34;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span><span class="s2">&#34;q&#34;</span><span class="o">=&gt;</span><span class="nv">$result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$tmp</span><span class="o">=</span> <span class="nx">json_encode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span> <span class="c1">//json 数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">echo</span> <span class="nv">$callback</span> <span class="o">.</span> <span class="s1">&#39;(&#39;</span> <span class="o">.</span> <span class="nv">$tmp</span> <span class="o">.</span><span class="s1">&#39;);&#39;</span><span class="p">;</span> <span class="c1">//返回格式，必需
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>在html中调用接口</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">        <span class="nx">cb</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>
+<img loading="lazy" src="img/image-20220527173325078.png" alt="image-20220527173325078"  />
+</p>
+</li>
+<li>
+<p>可以看到接口数据已经可以正常显示。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>html中的完整js代码</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//组装查询地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">var</span> <span class="nx">sugurl</span> <span class="o">=</span> <span class="s2">&#34;http://localhost/api_yiyan_jsonp.php&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//定义回调函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">cb</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//动态添加JS脚本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">var</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">sugurl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;head&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h1 id="小结">小结</h1>
+<ul>
+<li>大概总结就是，如果外网提供的api可以直接提供callback回调函数的话，就可以直接使用jsonp进行跨域访问，否则就需要自己服务器中通过后端代码（比如php）进行读取，读取后的数据可以直接ajax（前提是前后端都在同源），也可以通过jsonp进行跨域访问。</li>
+</ul>
+<h1 id="公开接口">公开接口</h1>
+<ul>
+<li>
+<p>对每日一言接口加工后的新的API接口</p>
+</li>
+<li>
+<p>接口地址：http://virlib.nenu.edu.cn/api_yiyan_jsonp.php</p>
+</li>
+<li>
+<p>返回格式：回调函数（cb)+json数据</p>
+</li>
+<li>
+<p>请求方式：GET</p>
+</li>
+</ul>
+<h1 id="特殊的接口">特殊的接口</h1>
+<h2 id="天气api接口">天气API接口</h2>
+<ul>
+<li>
+<p><a href="https://www.tianqiapi.com/api/?version=v9&amp;appid=23035354&amp;appsecret=8YvlPNrz" target="_blank" rel="noopener noreffer">https://www.tianqiapi.com/api/?version=v9&appid=23035354&appsecret=8YvlPNrz</a></p>
+</li>
+<li>
+<p>接口特点</p>
+<ul>
+<li>可以直接实现跨域，不需要本地服务器转换</li>
+<li>可以直接ajax调用，不用jsonp</li>
+</ul>
+</li>
+</ul>
+<h2 id="原生js调用需要添加data数据">原生js调用需要添加data数据</h2>
+<ul>
+<li>在ajax方法中需要对参数进行变换调整：</li>
+</ul>
+<p>
+<img loading="lazy" src="img/clipboard-16536444947682.png" alt="img"  />
+</p>
+<ul>
+<li>因为ajax封装的函数各异，具体使用的时候还需看函数本身的具体内容。</li>
+</ul>
+<h2 id="jquery中的ajax">jquery中的ajax</h2>
+<ul>
+<li>如果使用jquery，则可以直接使用完整的url</li>
+</ul>
+<p>
+<img loading="lazy" src="img/clipboard-16536444947621.png" alt="img"  />
+</p>
+<ul>
+<li>jquery方便，而且库函数标准统一，但因为jquery存活时间很久了，生命力不足。推荐仅作适当了解，自己的代码尽量还是用原生js。</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-05-29</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/" data-title="自制接口"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/" data-title="自制接口"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/" data-title="自制接口"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/" data-title="自制接口"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/www/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%88%9D%E6%AD%A5/" class="prev" rel="prev" title="接口初步"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>接口初步</a>
+            <a href="/www/posts/01-hugo/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" class="next" rel="next" title="hugo静态页面">hugo静态页面<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/www/" target="_blank">mixlee</a></span>&nbsp;|&nbsp;<span class="license">迷离世界</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/www/js/theme.min.js"></script></body>
+</html>

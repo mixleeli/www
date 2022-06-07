@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>github&amp;hugo 与静态服务器 - 我的全新 Hugo 网站</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="github&amp;hugo 与静态服务器" />
+<meta property="og:description" content="github&amp;hugo 与静态服务器 如何顺畅的进入github 通过浏览器扩展 某个免费VPN 免费的vpn不一定稳定 不推荐一直使用 存在不稳定性、不安全性 国内镜像站 存在" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-06T08:16:13+08:00" />
+<meta property="article:modified_time" content="2022-06-06T08:16:13+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="github&amp;hugo 与静态服务器"/>
+<meta name="twitter:description" content="github&amp;hugo 与静态服务器 如何顺畅的进入github 通过浏览器扩展 某个免费VPN 免费的vpn不一定稳定 不推荐一直使用 存在不稳定性、不安全性 国内镜像站 存在"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" /><link rel="prev" href="https://mixleeli.github.io/www/posts/01-hugo/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" /><link rel="stylesheet" href="/www/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "github\u0026hugo 与静态服务器",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mixleeli.github.io\/www\/posts\/01-hugo\/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8\/"
+        },"genre": "posts","wordcount":  725 ,
+        "url": "https:\/\/mixleeli.github.io\/www\/posts\/01-hugo\/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8\/","datePublished": "2022-06-06T08:16:13+08:00","dateModified": "2022-06-06T08:16:13+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mixlee"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/www/www/posts/"> 文章 </a><a class="menu-item" href="/www/www/tags/"> 标签 </a><a class="menu-item" href="/www/www/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/www/www/posts/" title="">文章</a><a class="menu-item" href="/www/www/tags/" title="">标签</a><a class="menu-item" href="/www/www/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">github&hugo 与静态服务器</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/www/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mixlee</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-06">2022-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;725 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#如何顺畅的进入github">如何顺畅的进入github</a>
+      <ul>
+        <li><a href="#通过浏览器扩展-某个免费vpn">通过浏览器扩展 某个免费VPN</a></li>
+        <li><a href="#国内镜像站">国内镜像站</a></li>
+        <li><a href="#修改hosts文件">修改hosts文件</a></li>
+        <li><a href="#github加速神器-fastgithub">github加速神器 fastgithub</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建仓库以及设置ssh">创建仓库以及设置ssh</a>
+      <ul>
+        <li><a href="#创建仓库开启pages">创建仓库、开启pages</a></li>
+        <li><a href="#设置ssh">设置ssh</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo静态页面发布到github">hugo静态页面发布到github</a>
+      <ul>
+        <li><a href="#hugo基本操作">hugo基本操作</a></li>
+        <li><a href="#通过git命令上传到github">通过git命令上传到github</a></li>
+      </ul>
+    </li>
+    <li><a href="#将本文件上传到github">将本文件上传到github</a>
+      <ul>
+        <li><a href="#保存文件">保存文件</a></li>
+        <li><a href="#将文件拷贝到hugo网站中的-contentposts文件夹下">将文件拷贝到hugo网站中的 content\posts\文件夹下</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="githubhugo-与静态服务器">github&amp;hugo 与静态服务器</h1>
+<h2 id="如何顺畅的进入github">如何顺畅的进入github</h2>
+<h3 id="通过浏览器扩展-某个免费vpn">通过浏览器扩展 某个免费VPN</h3>
+<ul>
+<li>免费的vpn不一定稳定
+<ul>
+<li>不推荐一直使用</li>
+<li>存在不稳定性、不安全性</li>
+</ul>
+</li>
+</ul>
+<h3 id="国内镜像站">国内镜像站</h3>
+<ul>
+<li>存在不稳定性</li>
+<li>关于git命令的操作需要修改域名</li>
+</ul>
+<h3 id="修改hosts文件">修改hosts文件</h3>
+<ul>
+<li>对域名和IP的重新绑定</li>
+<li>hosts文件位置
+<ul>
+<li>C:\Windows\System32\drivers\etc</li>
+</ul>
+</li>
+<li>资源
+<ul>
+<li><a href="https://github.com/ineo6/hosts" target="_blank" rel="noopener noreffer">ineo6/hosts: GitHub最新hosts。解决GitHub图片无法显示，加速GitHub网页浏览。</a></li>
+<li><a href="https://github.com/521xueweihan/GitHub520" target="_blank" rel="noopener noreffer">521xueweihan/GitHub520: 让你“爱”上 GitHub，解决访问时图裂、加载慢的问题。（无需安装）</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="github加速神器-fastgithub">github加速神器 fastgithub</h3>
+<ul>
+<li><a href="https://github.com/dotnetcore/FastGithub" target="_blank" rel="noopener noreffer">dotnetcore/FastGithub: github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题</a></li>
+<li>运行 fastgithub.exe</li>
+</ul>
+<h2 id="创建仓库以及设置ssh">创建仓库以及设置ssh</h2>
+<h3 id="创建仓库开启pages">创建仓库、开启pages</h3>
+<ul>
+<li>方便快捷</li>
+</ul>
+<h3 id="设置ssh">设置ssh</h3>
+<ul>
+<li><a href="https://blog.csdn.net/u013778905/article/details/83501204" target="_blank" rel="noopener noreffer">GitHub如何配置SSH Key_前端向朔的博客-CSDN博客_github ssh</a></li>
+<li>验证
+<ul>
+<li><code>ssh -T git@github.com</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="hugo静态页面发布到github">hugo静态页面发布到github</h2>
+<h3 id="hugo基本操作">hugo基本操作</h3>
+<ul>
+<li>略……</li>
+<li>生成了public文件夹</li>
+</ul>
+<h3 id="通过git命令上传到github">通过git命令上传到github</h3>
+<ul>
+<li>
+<p>在bash中进入hugo的new site（abc）文件夹进行发布</p>
+<ul>
+<li>
+<pre tabindex="0"><code>SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc
+$ hugo -D
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>进行git命令操作的时候，需要进入到public文件夹</p>
+<ul>
+<li>
+<pre tabindex="0"><code>SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc
+$ cd public
+
+SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc/public
+$ git init
+
+Initialized empty Git repository in C:/Users/SD/Desktop/hugo2/abc/public/.git/
+
+SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc/public (master)
+$ git remote add origin git@github.com:mixleeli/www.git
+
+SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc/public (master)
+$ git checkout -b main
+Switched to a new branch &#39;main&#39;
+
+SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc/public (main)
+$ git pull origin main
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>上面的命令可以将远端的仓库内容合并到本地仓库</p>
+</li>
+<li>
+<p>在本地进行修改操作后，推送到远端仓库。</p>
+<ul>
+<li>
+<pre tabindex="0"><code>SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc/public (main)
+$ git add .
+…………
+SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc/public (main)
+$ git commit -m &#34;loveit&#34;
+…………
+
+SD@DESKTOP-0DCL18 MINGW64 ~/Desktop/hugo2/abc/public (main)
+$ git push origin main
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>本地仓库与远端仓库已经一致。</p>
+</li>
+</ul>
+<h2 id="将本文件上传到github">将本文件上传到github</h2>
+<h3 id="保存文件">保存文件</h3>
+<h3 id="将文件拷贝到hugo网站中的-contentposts文件夹下">将文件拷贝到hugo网站中的 content\posts\文件夹下</h3>
+<ul>
+<li>
+<p>
+<img loading="lazy" src="img/image-20220606101922915.png" alt="image-20220606101922915"  />
+</p>
+</li>
+<li>
+<p>建立与网页名字相同的文件夹，并修改网页文件名为index.md</p>
+<ul>
+<li>
+<img loading="lazy" src="img/image-20220606102101723.png" alt="image-20220606102101723"  />
+</li>
+</ul>
+</li>
+<li>
+<p>重复1.3里面的操作步骤。</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-06-06</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-title="github&amp;hugo 与静态服务器"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-title="github&amp;hugo 与静态服务器"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-title="github&amp;hugo 与静态服务器"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-title="github&amp;hugo 与静态服务器"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/www/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/www/posts/01-hugo/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/" class="prev" rel="prev" title="hugo静态页面"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>hugo静态页面</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/www/" target="_blank">mixlee</a></span>&nbsp;|&nbsp;<span class="license">迷离世界</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/www/js/theme.min.js"></script></body>
+</html>
