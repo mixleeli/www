@@ -37,5 +37,21 @@
     <guid>https://mixleeli.github.io/www/posts/w9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
     <description><![CDATA[js语句写在body、head和外部js文件中的区别是什么 自己搜到的结果：在head中所代表的functions只加载不执行，执行是在某一事]]></description>
 </item>
+<item>
+    <title>自制接口</title>
+    <link>https://mixleeli.github.io/www/posts/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/</link>
+    <pubDate>Sun, 29 May 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/</guid>
+    <description><![CDATA[自制用于JSONP的接口 特点 回调函数 JSON数据 参照 PHP AJAX JSONP实现跨域请求使用实例 - 神马和浮云 - 博客园 (cnblogs.com) php接口代码 $callback = isset($_GET[&#39;callback&#39;]) ? trim($_GET[&#39;callback&#39;]) : &#39;&#39;; //]]></description>
+</item>
+<item>
+    <title>接口初步</title>
+    <link>https://mixleeli.github.io/www/posts/%E6%8E%A5%E5%8F%A3%E5%88%9D%E6%AD%A5/</link>
+    <pubDate>Fri, 27 May 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/%E6%8E%A5%E5%8F%A3%E5%88%9D%E6%AD%A5/</guid>
+    <description><![CDATA[百度智能提示的接口 接口 接口1 http://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaa http://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaa&cb=show https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?w]]></description>
+</item>
 </channel>
 </rss>
