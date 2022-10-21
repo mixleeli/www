@@ -3,9 +3,17 @@
         <title>我的全新 Hugo 网站</title>
         <link>https://mixleeli.github.io/www/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 21 Oct 2022 08:30:44 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 22 Oct 2022 07:18:45 &#43;0800</lastBuildDate>
             <atom:link href="https://mixleeli.github.io/www/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>小计</title>
+    <link>https://mixleeli.github.io/www/posts/%E5%B0%8F%E8%AE%A1/</link>
+    <pubDate>Sat, 22 Oct 2022 07:18:45 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/%E5%B0%8F%E8%AE%A1/</guid>
+    <description><![CDATA[随便的测试]]></description>
+</item>
+<item>
     <title>hugo&#43;github温习功课</title>
     <link>https://mixleeli.github.io/www/posts/hugo&#43;github%E6%B8%A9%E4%B9%A0%E5%8A%9F%E8%AF%BE/</link>
     <pubDate>Fri, 21 Oct 2022 08:30:44 &#43;0800</pubDate>
