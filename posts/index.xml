@@ -3,7 +3,15 @@
         <title>All Posts - 我的全新 Hugo 网站</title>
         <link>https://mixleeli.github.io/www/posts/</link>
         <description>All Posts | 我的全新 Hugo 网站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 08 Jun 2022 08:16:13 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 21 Oct 2022 08:30:44 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>hugo&#43;github温习功课</title>
+    <link>https://mixleeli.github.io/www/posts/hugo&#43;github%E6%B8%A9%E4%B9%A0%E5%8A%9F%E8%AF%BE/</link>
+    <pubDate>Fri, 21 Oct 2022 08:30:44 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/hugo&#43;github%E6%B8%A9%E4%B9%A0%E5%8A%9F%E8%AF%BE/</guid>
+    <description><![CDATA[hugo+github温习功课 找到hugo并配置环境变量 通过vscode配置github 将原来的loveit文件夹找到，里面包含了一些配置文]]></description>
+</item>
+<item>
     <title>第15周的学习笔记</title>
     <link>https://mixleeli.github.io/www/posts/%E7%AC%AC15%E5%91%A8%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
     <pubDate>Wed, 08 Jun 2022 08:16:13 &#43;0800</pubDate>
