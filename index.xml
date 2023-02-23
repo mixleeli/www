@@ -3,7 +3,63 @@
         <title>我的全新 Hugo 网站</title>
         <link>https://mixleeli.github.io/www/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 23 Feb 2023 08:30:44 &#43;0800</lastBuildDate>
             <atom:link href="https://mixleeli.github.io/www/index.xml" rel="self" type="application/rss+xml" />
-        </channel>
+        <item>
+    <title>新测试文章</title>
+    <link>https://mixleeli.github.io/www/posts/%E6%96%B0%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</link>
+    <pubDate>Thu, 23 Feb 2023 08:30:44 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/%E6%96%B0%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</guid>
+    <description><![CDATA[这个是一级标题 这是正文部分 这里加一张图片 这个是第二个一级标题 这里加一些基本文字 这个是二级标题 这个是第二个二级标题]]></description>
+</item>
+<item>
+    <title>hugo&#43;github温习功课</title>
+    <link>https://mixleeli.github.io/www/posts/hugo&#43;github%E6%B8%A9%E4%B9%A0%E5%8A%9F%E8%AF%BE/</link>
+    <pubDate>Fri, 21 Oct 2022 08:30:44 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/hugo&#43;github%E6%B8%A9%E4%B9%A0%E5%8A%9F%E8%AF%BE/</guid>
+    <description><![CDATA[hugo+github温习功课 找到hugo并配置环境变量 通过vscode配置github 将原来的loveit文件夹找到，里面包含了一些配置文]]></description>
+</item>
+<item>
+    <title>第15周的学习笔记</title>
+    <link>https://mixleeli.github.io/www/posts/%E7%AC%AC15%E5%91%A8%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Wed, 08 Jun 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/%E7%AC%AC15%E5%91%A8%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[课堂总结 本学期的内容概述 新起点]]></description>
+</item>
+<item>
+    <title>github&amp;hugo 与静态服务器</title>
+    <link>https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <pubDate>Mon, 06 Jun 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+    <description><![CDATA[github&amp;hugo 与静态服务器 如何顺畅的进入github 通过浏览器扩展 某个免费VPN 免费的vpn不一定稳定 不推荐一直使用 存在不稳定性、不安全性 国内镜像站 存在]]></description>
+</item>
+<item>
+    <title>hugo静态页面</title>
+    <link>https://mixleeli.github.io/www/posts/01-hugo/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/</link>
+    <pubDate>Sat, 04 Jun 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/01-hugo/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/</guid>
+    <description><![CDATA[gitee中的静态页面管理系统 支持 Jekyll、Hugo、Hexo编译静态资源 将md文件自动变换成静态页面html 初步了解 自行 流程 hugo 安装与配]]></description>
+</item>
+<item>
+    <title>自制接口</title>
+    <link>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/</link>
+    <pubDate>Sun, 29 May 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/</guid>
+    <description><![CDATA[自制用于JSONP的接口 特点 回调函数 JSON数据 参照 PHP AJAX JSONP实现跨域请求使用实例 - 神马和浮云 - 博客园 (cnblogs.com) php接口代码 $callback = isset($_GET[&#39;callback&#39;]) ? trim($_GET[&#39;callback&#39;]) : &#39;&#39;; //]]></description>
+</item>
+<item>
+    <title>接口初步</title>
+    <link>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%88%9D%E6%AD%A5/</link>
+    <pubDate>Fri, 27 May 2022 08:16:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%88%9D%E6%AD%A5/</guid>
+    <description><![CDATA[百度智能提示的接口 接口 接口1 http://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaa http://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaa&cb=show https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?w]]></description>
+</item>
+</channel>
 </rss>
