@@ -6,12 +6,12 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 04 Apr 2023 08:01:56 &#43;0800</lastBuildDate>
             <atom:link href="https://mixleeli.github.io/www/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Abc</title>
+    <title>vscode配置markdown的图片路径</title>
     <link>https://mixleeli.github.io/www/posts/%E4%BF%AE%E6%94%B9typora%E5%9B%BE%E7%89%87%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95/</link>
     <pubDate>Tue, 04 Apr 2023 08:01:56 &#43;0800</pubDate>
     <author>mixlee</author>
     <guid>https://mixleeli.github.io/www/posts/%E4%BF%AE%E6%94%B9typora%E5%9B%BE%E7%89%87%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95/</guid>
-    <description><![CDATA[标题 还是测试 图片]]></description>
+    <description><![CDATA[相关扩展 Paste Image 默认快捷键是 ctrl+alt+V 可以修改为ctrl+shift+V 设置 进入setting.json 输入配置信息 &#34;pasteImage.path&#34;: &#34;${currentFileDir}/${currentFileNameWithoutExt}.assets&#34;, &#34;pasteImage.basePath&#34;: &#34;${currentFileDir}&#34;, &#34;pasteImage.forceUnixStyleSeparator&#34;: true, &#34;pasteImage.prefix&#34;: &#34;/&#34;, &#34;pasteImage.insertPattern&#34;: &#34;${imageSyntaxPrefix}./${currentFileNameWithoutExt}.assets/${imageFileName}${imageSyntaxSuffix}&#34;, &#34;pasteImage.defaultName&#34;: &#34;i\\mg-YMMDDHHmmss&#34;, 测试 这样就可]]></description>
 </item>
 <item>
     <title>新测试文章</title>
