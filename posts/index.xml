@@ -3,7 +3,15 @@
         <title>All Posts - 我的全新 Hugo 网站</title>
         <link>https://mixleeli.github.io/www/posts/</link>
         <description>All Posts | 我的全新 Hugo 网站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 18 Jun 2025 14:45:13 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 19 Jun 2025 14:45:13 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>25测试</title>
+    <link>https://mixleeli.github.io/www/posts/04-202506test/</link>
+    <pubDate>Thu, 19 Jun 2025 14:45:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/04-202506test/</guid>
+    <description><![CDATA[测试标题 二级标题 图片测试]]></description>
+</item>
+<item>
     <title>第15周的学习笔记</title>
     <link>https://mixleeli.github.io/www/posts/03-test/</link>
     <pubDate>Wed, 18 Jun 2025 14:45:13 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
     <author>mixlee</author>
     <guid>https://mixleeli.github.io/www/posts/01-hugo/hugo%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/</guid>
     <description><![CDATA[gitee中的静态页面管理系统 支持 Jekyll、Hugo、Hexo编译静态资源 将md文件自动变换成静态页面html 初步了解 自行 流程 hugo 安装与配]]></description>
-</item>
-<item>
-    <title>自制接口</title>
-    <link>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/</link>
-    <pubDate>Sun, 29 May 2022 08:16:13 &#43;0800</pubDate>
-    <author>mixlee</author>
-    <guid>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/</guid>
-    <description><![CDATA[自制用于JSONP的接口 特点 回调函数 JSON数据 参照 PHP AJAX JSONP实现跨域请求使用实例 - 神马和浮云 - 博客园 (cnblogs.com) php接口代码 $callback = isset($_GET[&#39;callback&#39;]) ? trim($_GET[&#39;callback&#39;]) : &#39;&#39;; //]]></description>
 </item>
 </channel>
 </rss>
