@@ -3,9 +3,17 @@
         <title>我的全新 Hugo 网站</title>
         <link>https://mixleeli.github.io/www/</link>
         <description>This is my cool~ site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 04 Apr 2023 14:19:11 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 18 Jun 2025 14:45:13 &#43;0800</lastBuildDate>
             <atom:link href="https://mixleeli.github.io/www/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>第15周的学习笔记</title>
+    <link>https://mixleeli.github.io/www/posts/03-test/</link>
+    <pubDate>Wed, 18 Jun 2025 14:45:13 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/03-test/</guid>
+    <description><![CDATA[大标题测试 二级标题 具体内容]]></description>
+</item>
+<item>
     <title>测试汉字文件名以及图片</title>
     <link>https://mixleeli.github.io/www/posts/%E6%B1%89%E5%AD%97%E6%96%87%E4%BB%B6%E5%90%8D/</link>
     <pubDate>Tue, 04 Apr 2023 14:19:11 &#43;0800</pubDate>
@@ -76,14 +84,6 @@
     <author>mixlee</author>
     <guid>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E8%87%AA%E5%88%B6%E6%8E%A5%E5%8F%A3/</guid>
     <description><![CDATA[自制用于JSONP的接口 特点 回调函数 JSON数据 参照 PHP AJAX JSONP实现跨域请求使用实例 - 神马和浮云 - 博客园 (cnblogs.com) php接口代码 $callback = isset($_GET[&#39;callback&#39;]) ? trim($_GET[&#39;callback&#39;]) : &#39;&#39;; //]]></description>
-</item>
-<item>
-    <title>接口初步</title>
-    <link>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%88%9D%E6%AD%A5/</link>
-    <pubDate>Fri, 27 May 2022 08:16:13 &#43;0800</pubDate>
-    <author>mixlee</author>
-    <guid>https://mixleeli.github.io/www/posts/02-js%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%88%9D%E6%AD%A5/</guid>
-    <description><![CDATA[百度智能提示的接口 接口 接口1 http://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaa http://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaa&cb=show https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?w]]></description>
 </item>
 </channel>
 </rss>
