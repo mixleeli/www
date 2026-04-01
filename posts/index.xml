@@ -3,7 +3,15 @@
         <title>All Posts - 我的全新 Hugo 网站</title>
         <link>https://mixleeli.github.io/www/posts/</link>
         <description>All Posts | 我的全新 Hugo 网站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 19 Jun 2025 16:36:13 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 21 Mar 2026 08:30:44 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>HTML综合练习</title>
+    <link>https://mixleeli.github.io/www/posts/01_html_%E8%B5%84%E6%BA%90%E8%B0%83%E7%94%A8/</link>
+    <pubDate>Sat, 21 Mar 2026 08:30:44 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/01_html_%E8%B5%84%E6%BA%90%E8%B0%83%E7%94%A8/</guid>
+    <description><![CDATA[[toc] 课堂作业 HTML综合练习 文件结构 按照文件目录结构建立文件和文件夹； 参考效果 参考“页面最终效果演示”制作页面，不要使用任何样式，显示效果不需]]></description>
+</item>
+<item>
     <title>最后测试</title>
     <link>https://mixleeli.github.io/www/posts/05-%E6%96%B0%E7%9A%84%E6%B5%8B%E8%AF%95/</link>
     <pubDate>Thu, 19 Jun 2025 16:36:13 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
     <author>mixlee</author>
     <guid>https://mixleeli.github.io/www/posts/%E7%AC%AC15%E5%91%A8%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
     <description><![CDATA[课堂总结 本学期的内容概述 新起点]]></description>
-</item>
-<item>
-    <title>github&amp;hugo 与静态服务器</title>
-    <link>https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
-    <pubDate>Mon, 06 Jun 2022 08:16:13 &#43;0800</pubDate>
-    <author>mixlee</author>
-    <guid>https://mixleeli.github.io/www/posts/01-hugo/githubhugo-%E4%B8%8E%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-    <description><![CDATA[github&amp;hugo 与静态服务器 如何顺畅的进入github 通过浏览器扩展 某个免费VPN 免费的vpn不一定稳定 不推荐一直使用 存在不稳定性、不安全性 国内镜像站 存在]]></description>
 </item>
 </channel>
 </rss>
