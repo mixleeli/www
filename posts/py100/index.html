@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mixleeli.github.io\/www\/posts\/py100\/"
-        },"genre": "posts","wordcount":  10394 ,
+        },"genre": "posts","wordcount":  10351 ,
         "url": "https:\/\/mixleeli.github.io\/www\/posts\/py100\/","datePublished": "2026-04-13T08:30:44+08:00","dateModified": "2026-04-13T08:30:44+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -71,7 +71,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">py100基础练习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/www/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mixlee</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-04-13">2026-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;10394 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-04-13">2026-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;10351 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;21 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -197,14 +197,6 @@
 </span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                <span class="n">total</span><span class="o">+=</span><span class="mi">1</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
-</span></span></code></pre></div><p><strong>简便方法：用itertools中的permutations即可。</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">itertools</span>
-</span></span><span class="line"><span class="cl"><span class="n">sum2</span><span class="o">=</span><span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">sum2</span><span class="o">+=</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sum2</span><span class="p">)</span>
 </span></span></code></pre></div><h3 id="实例002个税计算">实例002：“个税计算”</h3>
 <p>题目企：业发放的奖金根据利润提成。利润(I)低于或等于10万元时，奖金可提10%；利润高于10万元，低于20万元时，低于10万元的部分按10%提成，高于10万元的部分，可提成7.5%；20万到40万之间时，高于20万元的部分，可提成5%；40万到60万之间时高于40万元的部分，可提成3%；60万到100万之间时，高于60万元的部分，可提成1.5%，高于100万元时，超过100万元的部分按1%提成，从键盘输入当月利润I，求应发放奖金总数？</p>
 <p><strong>程序分析分：区间计算即可。</strong></p>
