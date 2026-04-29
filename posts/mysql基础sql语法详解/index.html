@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>MySQL基础SQL语法详解 - 我的全新 Hugo 网站</title><meta name="Description" content="This is my cool~ site"><meta property="og:title" content="MySQL基础SQL语法详解" />
+<meta property="og:description" content="MySQL基础SQL语法详解 所有实例基于统一测试表，便于边学边练、加深记忆。 一、前置准备：测试表与测试数据 后续所有SQL语句均基于以下两张测" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-04-28T08:30:44+08:00" />
+<meta property="article:modified_time" content="2026-04-28T08:30:44+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL基础SQL语法详解"/>
+<meta name="twitter:description" content="MySQL基础SQL语法详解 所有实例基于统一测试表，便于边学边练、加深记忆。 一、前置准备：测试表与测试数据 后续所有SQL语句均基于以下两张测"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/" /><link rel="prev" href="https://mixleeli.github.io/www/posts/py100/" /><link rel="stylesheet" href="/www/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MySQL基础SQL语法详解",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mixleeli.github.io\/www\/posts\/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3\/"
+        },"genre": "posts","wordcount":  5677 ,
+        "url": "https:\/\/mixleeli.github.io\/www\/posts\/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3\/","datePublished": "2026-04-28T08:30:44+08:00","dateModified": "2026-04-28T08:30:44+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mixlee"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/www/posts/"> 文章 </a><a class="menu-item" href="/www/tags/"> 标签 </a><a class="menu-item" href="/www/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/www/" title="我的全新 Hugo 网站">迷离世界</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/www/posts/" title="">文章</a><a class="menu-item" href="/www/tags/" title="">标签</a><a class="menu-item" href="/www/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MySQL基础SQL语法详解</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/www/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mixlee</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-04-28">2026-04-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5677 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一前置准备测试表与测试数据">一、前置准备：测试表与测试数据</a></li>
+    <li><a href="#二sql语句分类必记">二、SQL语句分类（必记）</a></li>
+    <li><a href="#三核心语法详解按常用优先级排序">三、核心语法详解（按常用优先级排序）</a></li>
+    <li><a href="#一dql-数据查询语言重点中的重点">（一）DQL 数据查询语言（重点中的重点）</a>
+      <ul>
+        <li><a href="#1-基础查询无筛选无排序">1. 基础查询（无筛选、无排序）</a></li>
+        <li><a href="#2-distinct-去重查询">2. DISTINCT 去重查询</a></li>
+        <li><a href="#3-条件查询where子句">3. 条件查询（WHERE子句）</a></li>
+        <li><a href="#4-排序查询order-by子句">4. 排序查询（ORDER BY子句）</a></li>
+        <li><a href="#5-分页查询limit子句">5. 分页查询（LIMIT子句）</a></li>
+        <li><a href="#6-聚合函数统计数据">6. 聚合函数（统计数据）</a></li>
+        <li><a href="#7-分组查询group-by子句">7. 分组查询（GROUP BY子句）</a></li>
+        <li><a href="#8-分组后筛选having子句">8. 分组后筛选（HAVING子句）</a></li>
+        <li><a href="#9-left-join-左外连接多表查询基础">9. LEFT JOIN 左外连接（多表查询基础）</a></li>
+        <li><a href="#10-dql查询执行顺序">10. DQL查询执行顺序</a></li>
+        <li><a href="#11-综合查询实例">11. 综合查询实例</a></li>
+      </ul>
+    </li>
+    <li><a href="#二dml-数据操作语言增删改">（二）DML 数据操作语言（增删改）</a>
+      <ul>
+        <li><a href="#1-插入数据insert-into">1. 插入数据（INSERT INTO）</a></li>
+        <li><a href="#2-修改数据update">2. 修改数据（UPDATE）</a></li>
+        <li><a href="#3-删除数据delete">3. 删除数据（DELETE）</a></li>
+      </ul>
+    </li>
+    <li><a href="#三ddl-数据定义语言表结构操作">（三）DDL 数据定义语言（表结构操作）</a>
+      <ul>
+        <li><a href="#1-创建表create-table">1. 创建表（CREATE TABLE）</a></li>
+        <li><a href="#2-修改表结构alter-table">2. 修改表结构（ALTER TABLE）</a></li>
+        <li><a href="#3-删除表drop-table">3. 删除表（DROP TABLE）</a></li>
+      </ul>
+    </li>
+    <li><a href="#四dcl-数据控制语言了解">（四）DCL 数据控制语言（了解）</a></li>
+    <li><a href="#四重点总结与注意事项">四、重点总结与注意事项</a>
+      <ul>
+        <li><a href="#1-核心优先级">1. 核心优先级</a></li>
+        <li><a href="#2-安全红线">2. 安全红线</a></li>
+        <li><a href="#3-高频组合用法">3. 高频组合用法</a></li>
+        <li><a href="#4-学习建议">4. 学习建议</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="mysql基础sql语法详解">MySQL基础SQL语法详解</h1>
+<p>所有实例基于统一测试表，便于边学边练、加深记忆。</p>
+<h2 id="一前置准备测试表与测试数据">一、前置准备：测试表与测试数据</h2>
+<p>后续所有SQL语句均基于以下两张测试表（学生表、班级表），先执行以下语句创建表并插入测试数据，确保所有实例可直接复制运行。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 1. 创建学生表（核心演示表，存储学生基本信息）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 学生ID，主键（唯一标识），自增（自动生成）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- 学生姓名，非空（必须填写）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">age</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">                           </span><span class="c1">-- 学生年龄，可选（可空）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">gender</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w">                    </span><span class="c1">-- 性别，可选（男/女）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w">                 </span><span class="c1">-- 所在班级
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">score</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w">                 </span><span class="c1">-- 成绩，保留2位小数，最大5位数字（如99.99）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 2. 创建班级表（用于联表查询演示）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">class</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cid</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 班级ID，主键，自增
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">cname</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">          </span><span class="c1">-- 班级名称，非空
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 3. 插入班级表测试数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">class</span><span class="p">(</span><span class="n">cname</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;高一1班&#39;</span><span class="p">),(</span><span class="s1">&#39;高一2班&#39;</span><span class="p">),(</span><span class="s1">&#39;高一3班&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 4. 插入学生表测试数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;张三&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;男&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一1班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">85</span><span class="p">.</span><span class="mi">5</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;李四&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;女&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一2班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">92</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;王五&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;男&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一1班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">78</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;赵六&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;女&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一2班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">66</span><span class="p">.</span><span class="mi">5</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;钱七&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;男&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一1班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">95</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;孙八&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;女&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一2班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">88</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;周九&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;男&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一3班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">79</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="二sql语句分类必记">二、SQL语句分类（必记）</h2>
+<p>SQL（Structured Query Language，结构化查询语言）是操作关系型数据库的标准语言，按功能可分为4大类，基础课程重点掌握前3类，尤其是数据查询语言（DQL）。</p>
+<ul>
+<li>
+<p><strong>DQL（数据查询语言）</strong>：核心语句为<code>SELECT</code>，用于查询数据库中的数据，是最常用、最重要的SQL语句，也是本文重点讲解内容。</p>
+</li>
+<li>
+<p><strong>DML（数据操作语言）</strong>：核心语句为<code>INSERT</code>（新增）、<code>UPDATE</code>（修改）、<code>DELETE</code>（删除），用于操作表中的数据。</p>
+</li>
+<li>
+<p><strong>DDL（数据定义语言）</strong>：核心语句为<code>CREATE</code>（创建）、<code>ALTER</code>（修改）、<code>DROP</code>（删除），用于操作表的结构（如建表、改字段、删表）。</p>
+</li>
+<li>
+<p><strong>DCL（数据控制语言）</strong>：核心语句为<code>GRANT</code>（授权）、<code>REVOKE</code>（回收权限），用于管理数据库权限，基础课程了解即可。</p>
+</li>
+</ul>
+<h2 id="三核心语法详解按常用优先级排序">三、核心语法详解（按常用优先级排序）</h2>
+<h2 id="一dql-数据查询语言重点中的重点">（一）DQL 数据查询语言（重点中的重点）</h2>
+<p>数据查询是SQL的核心，掌握以下内容，可应对日常80%以上的查询需求，从简单到复杂逐步讲解，搭配实例帮助理解。</p>
+<h3 id="1-基础查询无筛选无排序">1. 基础查询（无筛选、无排序）</h3>
+<p>用于查询表中指定字段或所有字段的数据，语法简单，是所有查询的基础。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 1. 查询表中所有字段（* 代表所有字段，效率较低，适合快速查看数据）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 2. 查询指定字段（推荐用法，效率高，明确需要的信息）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 3. 给字段起别名（AS可省略，别名用于简化显示，更易读）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">姓名</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="err">年龄</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="err">成绩</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="2-distinct-去重查询">2. DISTINCT 去重查询</h3>
+<p>作用：去除查询结果中完全重复的行，只保留唯一值，常用于统计不重复的数据（如不重复的班级、不重复的性别）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 1. 查询所有班级（未去重，会出现重复的班级名称）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 2. 查询不重复的班级（去重，只保留每个班级一次）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 3. 多字段联合去重（只有两个字段完全相同，才会被去重）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 统计每个班级的不同性别
+</span></span></span></code></pre></div><p>重点：DISTINCT必须紧跟在SELECT后面，仅对查询的字段生效，只会去除“完全相同”的行。</p>
+<h3 id="3-条件查询where子句">3. 条件查询（WHERE子句）</h3>
+<p>用于筛选符合条件的数据，配合运算符使用，是查询中最常用的筛选方式。先掌握常用运算符，再看实例。</p>
+<h4 id="常用运算符">常用运算符</h4>
+<table>
+<thead>
+<tr>
+<th>运算符类型</th>
+<th>具体运算符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>比较运算符</td>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td></td>
+<td>&amp;gt; / &amp;lt;</td>
+<td>大于 / 小于</td>
+</tr>
+<tr>
+<td></td>
+<td>&amp;gt;= / &amp;lt;=</td>
+<td>大于等于 / 小于等于</td>
+</tr>
+<tr>
+<td></td>
+<td>!= / &amp;lt;&amp;gt;</td>
+<td>不等于（两种写法均可）</td>
+</tr>
+<tr>
+<td></td>
+<td>BETWEEN ... AND ...</td>
+<td>区间查询（包含首尾值）</td>
+</tr>
+<tr>
+<td></td>
+<td>IS NULL / IS NOT NULL</td>
+<td>判断字段是否为空（NULL不能用=判断）</td>
+</tr>
+<tr>
+<td>逻辑运算符</td>
+<td>AND</td>
+<td>同时满足多个条件</td>
+</tr>
+<tr>
+<td></td>
+<td>OR</td>
+<td>满足任意一个条件即可</td>
+</tr>
+<tr>
+<td>特殊运算符</td>
+<td>IN</td>
+<td>多值匹配，替代多个OR</td>
+</tr>
+<tr>
+<td></td>
+<td>LIKE</td>
+<td>模糊查询，配合通配符使用</td>
+</tr>
+</tbody>
+</table>
+<h4 id="条件查询实例重点掌握">条件查询实例（重点掌握）</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 1. 基础比较查询：查询成绩≥80分的学生
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 2. 逻辑运算符：查询高一1班的男生
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;高一1班&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">gender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;男&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 3. IN多值匹配：查询班级为高一1班、高一2班的学生（替代OR，更简洁）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;高一1班&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一2班&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 等价于：SELECT * FROM student WHERE class = &#39;高一1班&#39; OR class = &#39;高一2班&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 4. BETWEEN区间查询：查询年龄在17~18岁之间的学生（包含17和18）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 5. LIKE模糊查询（配合通配符）
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 通配符1：% 匹配任意长度的字符（0个、1个、多个均可）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;张%&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查询姓“张”的学生（张开头）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%五%&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查询名字中包含“五”的学生
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%八&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查询名字以“八”结尾的学生
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 通配符2：_ 匹配单个任意字符（必须是1个）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;张_&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查询名字为两个字、且姓张的学生
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 6. 空值判断：查询成绩不为空的学生（NULL不能用=判断）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="4-排序查询order-by子句">4. 排序查询（ORDER BY子句）</h3>
+<p>用于对查询结果按指定字段排序，可升序或降序，常用于排行榜、数据排序展示。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 1. 按成绩升序排序（ASC：升序，默认可省略）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 2. 按成绩降序排序（DESC：降序，必须写）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 3. 多字段排序：先按班级升序，班级相同则按成绩降序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="5-分页查询limit子句">5. 分页查询（LIMIT子句）</h3>
+<p>用于限制查询结果的条数，避免一次性查询全表数据（尤其是数据量较大时），是日常开发和查询中非常常用的语句。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 语法：LIMIT 起始索引, 查询条数（起始索引从0开始，可省略，省略时从0开始）
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 实例1：查询前3条学生数据（起始索引0，查询3条）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 实例2：简化写法（省略起始索引，默认从0开始）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 等价于上面的语句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 实例3：查询第4~6条数据（起始索引3，查询3条）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="6-聚合函数统计数据">6. 聚合函数（统计数据）</h3>
+<p>用于对数据进行统计计算，常用的5个聚合函数，必须配合SELECT使用，可单独使用，也可配合分组查询。</p>
+<table>
+<thead>
+<tr>
+<th>聚合函数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COUNT(*)</td>
+<td>统计总行数（最常用，包含非空字段）</td>
+</tr>
+<tr>
+<td>SUM(字段名)</td>
+<td>计算指定字段的总和（仅适用于数值类型）</td>
+</tr>
+<tr>
+<td>AVG(字段名)</td>
+<td>计算指定字段的平均值（仅适用于数值类型）</td>
+</tr>
+<tr>
+<td>MAX(字段名)</td>
+<td>查询指定字段的最大值（仅适用于数值类型）</td>
+</tr>
+<tr>
+<td>MIN(字段名)</td>
+<td>查询指定字段的最小值（仅适用于数值类型）</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 实例1：查询学生总人数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">总人数</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 实例2：查询全班总成绩、平均成绩、最高分、最低分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">总成绩</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">平均成绩</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">最高分</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">MIN</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">最低分</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 实例3：查询高一1班的平均成绩
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">高一</span><span class="mi">1</span><span class="err">班平均分</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;高一1班&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="7-分组查询group-by子句">7. 分组查询（GROUP BY子句）</h3>
+<p>用于按指定字段分组，对每组数据进行统计（必须配合聚合函数使用），常用于按类别统计数据（如按班级统计人数、按性别统计平均分）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 实例1：按班级分组，统计每个班级的人数、平均成绩
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">班级</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">人数</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">平均成绩</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">class</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 实例2：按班级和性别分组，统计每组的人数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">班级</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">gender</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">性别</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">人数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="8-分组后筛选having子句">8. 分组后筛选（HAVING子句）</h3>
+<p>用于筛选分组后的统计结果，注意区分WHERE和HAVING的区别：WHERE筛选的是原始数据，HAVING筛选的是分组后的统计结果。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 实例：查询平均成绩≥80分的班级（先分组，再筛选分组结果）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">班级</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">平均成绩</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">class</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 错误写法：用WHERE筛选分组结果（WHERE不能直接筛选聚合函数结果）
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- SELECT class, AVG(score) FROM student WHERE AVG(score) &gt;=80 GROUP BY class;
+</span></span></span></code></pre></div><h3 id="9-left-join-左外连接多表查询基础">9. LEFT JOIN 左外连接（多表查询基础）</h3>
+<p>当需要查询多个表的数据时，使用连接查询，LEFT JOIN是最常用的连接方式，核心规则：以左表为基准，左表所有数据全部显示，右表只显示与左表匹配的数据，匹配不到的地方显示NULL。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 语法：SELECT 字段 FROM 左表 别名 LEFT JOIN 右表 别名 ON 左表.关联字段 = 右表.关联字段;
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 实例：查询所有学生的信息，以及他们对应的班级信息（左表：student，右表：class）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">学生</span><span class="n">ID</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">姓名</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="k">class</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">班级名称</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">c</span><span class="p">.</span><span class="n">cid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">班级</span><span class="n">ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="c1">-- s是student表的别名，简化写法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="c1">-- c是class表的别名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="k">class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">cname</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 关联条件：学生表的班级名称 = 班级表的班级名称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 结果特点：所有学生都会显示（左表全保留），高一3班的周九会显示班级ID，未匹配到的班级会显示NULL
+</span></span></span></code></pre></div><h3 id="10-dql查询执行顺序">10. DQL查询执行顺序</h3>
+<p>写复杂查询时，必须记住执行顺序，否则容易出现语法错误或查询结果不符合预期，顺序如下（从左到右）：</p>
+<ol>
+<li>
+<p>FROM：确定查询的表（如果有连接，先执行连接）</p>
+</li>
+<li>
+<p>LEFT JOIN：执行左连接，匹配两张表的数据</p>
+</li>
+<li>
+<p>WHERE：筛选原始数据（分组前筛选）</p>
+</li>
+<li>
+<p>GROUP BY：对筛选后的数据进行分组</p>
+</li>
+<li>
+<p>HAVING：筛选分组后的统计结果（分组后筛选）</p>
+</li>
+<li>
+<p>SELECT：查询指定字段（包含聚合函数、DISTINCT去重）</p>
+</li>
+<li>
+<p>ORDER BY：对查询结果进行排序</p>
+</li>
+<li>
+<p>LIMIT：限制查询结果的条数</p>
+</li>
+</ol>
+<h3 id="11-综合查询实例">11. 综合查询实例</h3>
+<p>结合以上所有知识点，完成一个综合查询需求，帮助巩固记忆，理解各语句的配合使用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 需求：
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 1. 查询高一1班、高一2班的学生
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 2. 姓名包含“四”或“六”，成绩大于70分
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 3. 去除重复的班级和性别组合
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 4. 关联班级表，显示学生姓名、班级、性别、成绩、班级ID
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 5. 按成绩降序排序，只取前4条数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">姓名</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="k">class</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">班级</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">gender</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">性别</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">成绩</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">c</span><span class="p">.</span><span class="n">cid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">班级</span><span class="n">ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="n">s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="k">class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">cname</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="k">class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;高一1班&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一2班&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%四%&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%六%&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">70</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="二dml-数据操作语言增删改">（二）DML 数据操作语言（增删改）</h2>
+<p>用于操作表中的数据，重点注意：修改（UPDATE）和删除（DELETE）必须加WHERE条件，否则会操作全表数据，造成数据丢失！</p>
+<h3 id="1-插入数据insert-into">1. 插入数据（INSERT INTO）</h3>
+<p>用于向表中新增一条或多条数据，语法灵活，可指定字段，也可省略字段（需与表结构顺序一致）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 1. 插入单条数据（指定字段，推荐，灵活，即使表结构变化也不易出错）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;吴十&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;女&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一2班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 2. 插入多条数据（高效，一次插入多条，减少操作次数）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">VALUES</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;郑十一&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;男&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一1班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">82</span><span class="p">.</span><span class="mi">5</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;王十二&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;女&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一3班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">76</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 3. 省略字段插入（需与表结构字段顺序一致，主键自增可省略）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;冯十三&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;男&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;高一3班&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">89</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h3 id="2-修改数据update">2. 修改数据（UPDATE）</h3>
+<p>用于修改表中已有的数据，<strong>必加WHERE条件</strong>，否则会修改表中所有数据。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 实例1：修改张三的成绩为90.0（指定单个字段修改）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">90</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;张三&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 实例2：修改王五的年龄和班级（多字段修改，用逗号分隔）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;高一3班&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 错误写法（无WHERE条件，会修改全表学生的成绩）
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- UPDATE student SET score = 100;
+</span></span></span></code></pre></div><h3 id="3-删除数据delete">3. 删除数据（DELETE）</h3>
+<p>用于删除表中的数据，<strong>必加WHERE条件</strong>，否则会清空整个表的数据（不可恢复，谨慎操作）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 实例1：删除成绩&lt;60分的学生（筛选条件删除）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 实例2：删除指定ID的学生（最安全的删除方式，ID唯一）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 错误写法（无WHERE条件，会清空整个student表）
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- DELETE FROM student;
+</span></span></span></code></pre></div><h2 id="三ddl-数据定义语言表结构操作">（三）DDL 数据定义语言（表结构操作）</h2>
+<p>用于操作表的结构，基础课程掌握常用的建表、改表、删表操作即可，操作前需谨慎（会影响表结构和数据）。</p>
+<h3 id="1-创建表create-table">1. 创建表（CREATE TABLE）</h3>
+<p>语法：CREATE TABLE 表名 (字段名 数据类型 约束条件, ...);</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 示例：创建一个教师表（teacher）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">teacher</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">tid</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 教师ID，主键，自增
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">tname</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- 教师姓名，非空
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">subject</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w">                </span><span class="c1">-- 所教科目
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">age</span><span class="w"> </span><span class="nb">INT</span><span class="w">                             </span><span class="c1">-- 教师年龄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h3 id="2-修改表结构alter-table">2. 修改表结构（ALTER TABLE）</h3>
+<p>用于新增字段、修改字段、删除字段，常用操作如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 1. 给student表新增“手机号”字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">phone</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 2. 修改student表中age字段的数据类型（从INT改为TINYINT，更节省空间）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="n">TINYINT</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 3. 删除student表中的“手机号”字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="n">phone</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="3-删除表drop-table">3. 删除表（DROP TABLE）</h3>
+<p>用于删除整个表（包括表结构和表中所有数据），谨慎操作，删除后不可恢复。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 语法：DROP TABLE IF EXISTS 表名;（IF EXISTS避免表不存在时报错）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">teacher</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 删除教师表
+</span></span></span></code></pre></div><h2 id="四dcl-数据控制语言了解">（四）DCL 数据控制语言（了解）</h2>
+<p>用于管理数据库权限，基础课程了解即可，无需深入掌握。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 示例1：给用户授予student表的查询权限
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;user1&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 示例2：回收用户的查询权限
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">REVOKE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;user1&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="四重点总结与注意事项">四、重点总结与注意事项</h2>
+<h3 id="1-核心优先级">1. 核心优先级</h3>
+<p>DQL（查询）&amp;gt; DML（增删改）&amp;gt; DDL（表结构）&amp;gt; DCL（权限），重点掌握DQL查询，这是日常使用最多的内容。</p>
+<h3 id="2-安全红线">2. 安全红线</h3>
+<ul>
+<li>
+<p>UPDATE和DELETE语句，<strong>必须加WHERE条件</strong>，否则会操作全表数据，造成不可恢复的损失。</p>
+</li>
+<li>
+<p>DROP TABLE语句需谨慎，删除前确认是否需要保留数据。</p>
+</li>
+<li>
+<p>NULL值判断必须用IS NULL / IS NOT NULL，不能用=或!=。</p>
+</li>
+</ul>
+<h3 id="3-高频组合用法">3. 高频组合用法</h3>
+<p>日常查询中，最常用的组合：SELECT + WHERE + ORDER BY + LIMIT（筛选+排序+分页），熟练掌握这一组合，可应对大部分查询需求。</p>
+<h3 id="4-学习建议">4. 学习建议</h3>
+<p>所有实例均可直接复制到MySQL中运行，边练边记效果最好；重点理解DQL查询的逻辑和执行顺序，多做综合练习，巩固知识点。</p>
+<blockquote>
+<p>（注：文档部分内容可能由 AI 生成）</p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2026-04-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/" data-title="MySQL基础SQL语法详解"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/" data-title="MySQL基础SQL语法详解"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/" data-title="MySQL基础SQL语法详解"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/" data-title="MySQL基础SQL语法详解"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/www/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/www/posts/py100/" class="prev" rel="prev" title="py100基础练习"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>py100基础练习</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/www/" target="_blank">mixlee</a></span>&nbsp;|&nbsp;<span class="license">迷离世界</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/www/js/theme.min.js"></script></body>
+</html>

@@ -3,21 +3,21 @@
         <title>All Posts - 我的全新 Hugo 网站</title>
         <link>https://mixleeli.github.io/www/posts/</link>
         <description>All Posts | 我的全新 Hugo 网站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 13 Apr 2026 08:30:44 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 28 Apr 2026 08:30:44 &#43;0800</lastBuildDate><atom:link href="https://mixleeli.github.io/www/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>MySQL基础SQL语法详解</title>
+    <link>https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Tue, 28 Apr 2026 08:30:44 &#43;0800</pubDate>
+    <author>mixlee</author>
+    <guid>https://mixleeli.github.io/www/posts/mysql%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[MySQL基础SQL语法详解 所有实例基于统一测试表，便于边学边练、加深记忆。 一、前置准备：测试表与测试数据 后续所有SQL语句均基于以下两张测]]></description>
+</item>
+<item>
     <title>py100基础练习</title>
     <link>https://mixleeli.github.io/www/posts/py100/</link>
     <pubDate>Mon, 13 Apr 2026 08:30:44 &#43;0800</pubDate>
     <author>mixlee</author>
     <guid>https://mixleeli.github.io/www/posts/py100/</guid>
     <description><![CDATA[Python **基础练习100题 ** 实例001：数字组合 题目：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？ 程序分析遍]]></description>
-</item>
-<item>
-    <title>HTML综合练习</title>
-    <link>https://mixleeli.github.io/www/posts/01_html_%E8%B5%84%E6%BA%90%E8%B0%83%E7%94%A8/</link>
-    <pubDate>Sat, 21 Mar 2026 08:30:44 &#43;0800</pubDate>
-    <author>mixlee</author>
-    <guid>https://mixleeli.github.io/www/posts/01_html_%E8%B5%84%E6%BA%90%E8%B0%83%E7%94%A8/</guid>
-    <description><![CDATA[[toc] 课堂作业 HTML综合练习 文件结构 按照文件目录结构建立文件和文件夹； 参考效果 参考“页面最终效果演示”制作页面，不要使用任何样式，显示效果不需]]></description>
 </item>
 <item>
     <title>最后测试</title>
